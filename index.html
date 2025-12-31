@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Operation: Fly Us – Romantic Adventure Pass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f8ff;
+      --card-bg: #ffffff;
+      --accent: #ff6b9c;
+      --accent-2: #4c8dff;
+      --text-main: #222222;
+      --text-soft: #666666;
+      --border-soft: #e3e5ff;
+      --shadow-soft: 0 10px 30px rgba(15, 35, 95, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffe8f3 0, #f7f8ff 40%, #e9f2ff 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, rgba(255, 107, 156, 0.16), rgba(76, 141, 255, 0.18));
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-text h1 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .tag span.icon {
+      font-size: 1rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ff9e7b);
+      color: #fff;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(255, 107, 156, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(255, 107, 156, 0.45);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    .hero-banner {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #ffe0f0, #e5f0ff);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-floating-heart {
+      position: absolute;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+    .hero-floating-heart.h1 { top: 18px; right: 26px; }
+    .hero-floating-heart.h2 { bottom: 18px; left: 18px; }
+    .hero-floating-heart.h3 { bottom: 10px; right: 40px; }
+
+    /* SECTIONS */
+
+    .section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-title span.icon {
+      font-size: 1.3rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 18px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .card + .card {
+      margin-top: 14px;
+    }
+
+    .card p {
+      margin: 4px 0;
+      font-size: 0.93rem;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.85rem;
+    }
+
+    /* TWO COLUMNS SECTION */
+
+    .plans {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .plans {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .plan-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .plan-body {
+      font-size: 0.9rem;
+    }
+
+    .plan-body ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 0;
+    }
+
+    .plan-body li {
+      margin-bottom: 4px;
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .plan-body li span.bullet {
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    /* RSVP */
+
+    .rsvp-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .rsvp-pill {
+      border-radius: 999px;
+      border: 1px dashed var(--accent-2);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Operation: <span>Fly&nbsp;Us</span> – Romantic Adventure Pass</h1>
+        <div class="hero-sub">
+          «Αν κάποτε φοβήθηκα… σήμερα διαλέγω να πετάξουμε μαζί.»  
+          Μια μικρή αποστολή μόνο για εμάς τους δύο.
+        </div>
+
+        <div class="hero-tags">
+          <div class="tag"><span class="icon">🪂</span><span>Indoor skydiving</span></div>
+          <div class="tag"><span class="icon">🌊</span><span>Θάλασσα & φαγητό</span></div>
+          <div class="tag"><span class="icon">💑</span><span>Ζευγαρίσια στιγμή</span></div>
+          <div class="tag"><span class="icon">🎢</span><span>Λίγη αδρεναλίνη</span></div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#rsvp" class="btn-primary">
+            Δηλώνω συμμετοχή στην αποστολή 💌
+          </a>
+          <a href="#plans" class="btn-ghost">
+            Δες τα πλάνα <span>👇</span>
+          </a>
+        </div>
+        <div class="hero-note">
+          Adventure • Laughs • You & Me ✨
+        </div>
+      </div>
+
+      <div class="hero-banner">
+        <!-- Βάλε εδώ το banner σου: δύο ανθρωπάκια σε “ελεύθερη πτώση” -->
+        <img src="banner.png" alt="Couple skydiving together illustration" />
+        <div class="hero-floating-heart h1">💗</div>
+        <div class="hero-floating-heart h2">💙</div>
+        <div class="hero-floating-heart h3">💖</div>
+      </div>
+    </section>
+
+    <!-- WELCOME / DESCRIPTION -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon">💙</span>
+        <span>Ρομαντική πρόσκληση</span>
+      </div>
+      <div class="card">
+        <p>«Αυτή τη φορά… εγώ κάνω το βήμα. Πάμε να πετάξουμε μαζί;»</p>
+        <p class="muted">
+          Καμία βαλίτσα, κανένα boarding pass. Μόνο εμείς, ένας σωλήνας με αέρα,
+          γέλια και λίγο θάρρος παραπάνω.
+        </p>
+      </div>
+    </section>
+
+    <!-- FUN / GEEKY -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon">😄</span>
+        <span>Fun Adventure Pass – παιχνιδιάρικη εκδοχή</span>
+      </div>
+      <div class="card">
+        <p><strong>🎢 Operation: Fly Lovebirds Fly!</strong></p>
+        <p class="muted">
+          📍 Αναχώρηση: Σπάτα  
+          👩‍❤️‍👨 Επιβάτες: 2 τρελοί που δεν φοβούνται πια  
+          🌤️ Καιρός: 100% ανέμελος
+        </p>
+        <p class="muted">
+          🪂 Πέταγμα στο τούνελ<br />
+          🤳 Selfies τύπου «πιάσε με μη χαθώ»<br />
+          🌊 Παραθαλάσσιο φαγητό / καφές με θέα<br />
+          🚗 Μικρό drive με μουσική επιλογής καπετάνιου (= εσύ)
+        </p>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section class="section" id="plans">
+      <div class="section-title">
+        <span class="icon">📅</span>
+        <span>Δύο πλάνα, μία αποστολή</span>
+      </div>
+
+      <div class="plans">
+        <!-- Plan A -->
+        <div class="card">
+          <div class="plan-title">
+            <span>💑 Πλάνο Α — Μόνο Εμείς οι Δύο</span>
+          </div>
+          <div class="plan-body">
+            <p class="muted">Μισή μέρα για να θυμηθούμε πώς είναι να είμαστε μόνο ζευγάρι.</p>
+            <ul>
+              <li><span class="bullet">🕙</span><span>10:00 — Αναχώρηση για Σπάτα</span></li>
+              <li><span class="bullet">🪂</span><span>10:30–12:00 — Indoor Skydiving (εμπειρία μόνο για εμάς)</span></li>
+              <li><span class="bullet">☕</span><span>12:15 — Καφές / brunch για να «το χωνέψουμε»</span></li>
+              <li><span class="bullet">🌊</span><span>13:00 — Φαγητό με θέα θάλασσα (Βραυρώνα / Αρτέμιδα / Αυλάκι)</span></li>
+              <li><span class="bullet">🚗</span><span>13:45 — Μικρό drive με μουσική & κουβέντα</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Plan B -->
+        <div class="card">
+          <div class="plan-title">
+            <span>🌈 Πλάνο Β — Οικογενειακό + Ζευγάρι</span>
+          </div>
+          <div class="plan-body">
+            <p class="muted">Μέρα για όλους — με τη δική μας στιγμή μέσα της.</p>
+            <ul>
+              <li><span class="bullet">🦁</span><span>Πρωί — Αττικό Πάρκο ή «Χωριό των Δράκων» για τα παιδιά</span></li>
+              <li><span class="bullet">🪂</span><span>Μετά — Indoor Skydiving (εμείς οι δύο πρώτοι, τα παιδιά θεατές–cheerleaders)</span></li>
+              <li><span class="bullet">🛒</span><span>Έπειτα — Smart Park ή παραθαλάσσιο φαγητό όλοι μαζί</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section" id="rsvp">
+      <div class="section-title">
+        <span class="icon">💌</span>
+        <span>RSVP – Διάλεξε αποστολή</span>
+      </div>
+      <div class="card">
+        <p>Διάλεξε ποιο πλάνο σου ταιριάζει περισσότερο αυτή τη στιγμή. Το σημαντικό είναι να πετάξουμε μαζί.</p>
+
+        <div class="rsvp-options">
+          <!-- Μπορείς να αλλάξεις το mailto με το δικό σου email -->
+          <a
+            class="rsvp-pill"
+            href="mailto:example@example.com?subject=RSVP%20Operation%20Fly%20Us&body=Διαλέγω%20Πλάνο%20Α%20—%20Μόνο%20Εμείς%20οι%20Δύο.%0A%0AΠροτεινόμενες%20μέρες:%20"
+          >
+            <span>💑</span>
+            <span>Πλάνο Α – Εμείς οι δύο</span>
+          </a>
+
+          <a
+            class="rsvp-pill"
+            href="mailto:example@example.com?subject=RSVP%20Operation%20Fly%20Us&body=Διαλέγω%20Πλάνο%20Β%20—%20Οικογενειακό%20+%20Ζευγάρι.%0A%0AΠροτεινόμενες%20μέρες:%20"
+          >
+            <span>🌈</span>
+            <span>Πλάνο Β – Όλη η ομάδα</span>
+          </a>
+
+          <a
+            class="rsvp-pill"
+            href="mailto:example@example.com?subject=RSVP%20Operation%20Fly%20Us&body=Θέλω%20να%20τα%20κάνουμε%20και%20τα%20δύο%2C%20σε%20δύο%20διαφορετικές%20Κυριακές.%20%0A%0AΙδέες%20για%20ημερομηνίες:%20"
+          >
+            <span>✨</span>
+            <span>Τα κάνουμε και τα δύο 😉</span>
+          </a>
+        </div>
+
+        <p class="muted" style="margin-top: 10px;">
+          (Το mailto μπορείς να το αλλάξεις σε οτιδήποτε: π.χ. σε ένα Google Form ή απλά να το αφήσεις σαν fun λεπτομέρεια.)
+        </p>
+      </div>
+
+      <div class="footer-note">
+        This mission may cause αυθόρμητα χαμόγελα, αγκαλιές και την επιθυμία για επανάληψη. 🪂💗
+      </div>
+    </section>
+  </div>
+</body>
+</html>
